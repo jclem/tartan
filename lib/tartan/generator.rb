@@ -48,6 +48,11 @@ module Tartan
       end
     end
 
+    def install_files
+      make_install_directory
+      copy_in_scss_files
+    end
+
     def remove_tartan_directory
       FileUtils.rm_rf('tartan')
     end
