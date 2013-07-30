@@ -1,6 +1,7 @@
 @import 'mixins';
 
 @mixin container {
+  @include box-sizing(border-box);
   @include clearfix;
 
   margin: 0 auto;
@@ -8,7 +9,7 @@
   width: columns(12) - gutter() * 2;
 
   @if $tartan-fluid == false {
-    min-width: container-outer-width();
+    min-width: container-outer-width() + $tartan-gutter-width * 2;
     padding: 0 $tartan-gutter-width;
   }
 
