@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'tartan/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "tartan"
+  spec.name          = "tartan-grid"
   spec.version       = Tartan::VERSION
   spec.authors       = ["Jonathan Clem"]
   spec.email         = ["jonathan@jclem.net"]
