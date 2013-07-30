@@ -58,7 +58,7 @@ module Tartan
     end
 
     def make_install_directory
-      FileUtils.mkdir(install_path)
+      FileUtils.mkdir_p(install_path)
     end
 
     def copy_in_scss_files
