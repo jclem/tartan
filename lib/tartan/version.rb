@@ -1,0 +1,3 @@
+module Tartan
+  VERSION = "0.0.1"
+end
