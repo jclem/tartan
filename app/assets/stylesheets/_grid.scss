@@ -1,17 +1,15 @@
 @import 'mixins';
 
 @mixin container {
-  @include box-sizing(border-box);
   @include clearfix;
 
   margin: 0 auto;
   max-width: container-outer-width();
+  width: columns(12) - gutter() * 2;
 
   @if $tartan-fluid == false {
     min-width: container-outer-width();
     padding: 0 $tartan-gutter-width;
-  } @else {
-    padding: 0 gutter();
   }
 
   @if $tartan-render-mode == inline-block {
