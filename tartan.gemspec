@@ -8,7 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Tartan::VERSION
   spec.authors       = ["Jonathan Clem"]
   spec.email         = ["jonathan@jclem.net"]
-  spec.description   = %q{A simple grid for Heroku}
+  spec.description   = <<-EOF
+A simple grid for Heroku, with a Rails engine.
+EOF
   spec.summary       = %q{A simple grid for Heroku}
   spec.homepage      = "https://github.com/jclem/tartan"
   spec.license       = "MIT"
