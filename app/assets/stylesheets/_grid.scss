@@ -5,11 +5,11 @@
   @include clearfix;
 
   margin: 0 auto;
-  max-width: container-outer-width();
-  width: columns(12) - gutter() * 2;
+  max-width: tartan-container-outer-width();
+  width: tartan-columns(12) - tartan-gutter() * 2;
 
   @if $tartan-fluid == false {
-    min-width: container-outer-width() + $tartan-gutter-width * 2;
+    min-width: tartan-container-outer-width() + $tartan-gutter-width * 2;
     padding: 0 $tartan-gutter-width;
   }
 
@@ -38,9 +38,9 @@
     float: left;
   }
 
-  margin-right: gutter($context);
-  margin-bottom: gutter($context);
-  width: columns($columns, $context);
+  margin-right: tartan-gutter($context);
+  margin-bottom: tartan-gutter($context);
+  width: tartan-columns($columns, $context);
   vertical-align: top;
 
   @if $columns == $context {
@@ -57,7 +57,7 @@
 }
 
 @mixin push-columns($columns: 1, $context: $tartan-column-count, $type: margin) {
-  #{$type}-left: columns($columns, $context) + gutter($context);
+  #{$type}-left: tartan-columns($columns, $context) + tartan-gutter($context);
 
   @if $type == padding {
     @include box-sizing(content-box);
@@ -65,7 +65,7 @@
 }
 
 @mixin bumper($columns: 1, $context: $tartan-column-count, $type: margin) {
-  #{$type}-right: columns($columns, $context) + gutter($context);
+  #{$type}-right: tartan-columns($columns, $context) + tartan-gutter($context);
 
   @if $type == padding {
     @include box-sizing(content-box);
@@ -83,5 +83,5 @@
 
 @mixin no-omega($context: $tartan-column-count) {
   float: left;
-  margin-right: gutter($context);
+  margin-right: tartan-gutter($context);
 }

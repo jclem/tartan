@@ -1,19 +1,19 @@
-@function columns-width($columns) {
+@function tartan-columns-width($columns) {
   @return ($columns * $tartan-column-width) + ($columns - 1) * $tartan-gutter-width;
 }
 
-@function columns($columns, $context: $tartan-column-count) {
-  @return relative-width(columns-width($columns), $context)
+@function tartan-columns($columns, $context: $tartan-column-count) {
+  @return tartan-relative-width(tartan-columns-width($columns), $context)
 }
 
-@function gutter($context: $tartan-column-count) {
-  @return relative-width($tartan-gutter-width, $context);
+@function tartan-gutter($context: $tartan-column-count) {
+  @return tartan-relative-width($tartan-gutter-width, $context);
 }
 
-@function container-outer-width() {
-  @return columns-width($tartan-column-count);
+@function tartan-container-outer-width() {
+  @return tartan-columns-width($tartan-column-count);
 }
 
-@function relative-width($width, $context: $tartan-column-count) {
-  @return percentage($width / columns-width($context));
+@function tartan-relative-width($width, $context: $tartan-column-count) {
+  @return percentage($width / tartan-columns-width($context));
 }
