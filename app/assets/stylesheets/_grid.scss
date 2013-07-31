@@ -1,6 +1,6 @@
 @import 'mixins';
 
-@mixin container {
+@mixin tartan-container {
   @include box-sizing(border-box);
   @include clearfix;
 
@@ -18,17 +18,17 @@
   }
 }
 
-@mixin sub-container {
-  @include container;
+@mixin tartan-sub-container {
+  @include tartan-container;
   max-width: 100%;
   padding: 0;
 }
 
-@mixin row {
+@mixin tartan-row {
   @include clearfix;
 }
 
-@mixin span-columns($columns: $tartan-column-count, $context: $tartan-column-count, $tartan-render-mode: $tartan-render-mode) {
+@mixin tartan-span-columns($columns: $tartan-column-count, $context: $tartan-column-count, $tartan-render-mode: $tartan-render-mode) {
   @include box-sizing(border-box);
 
   @if $tartan-render-mode == inline-block {
@@ -44,7 +44,7 @@
   vertical-align: top;
 
   @if $columns == $context {
-    @include omega;
+    @include tartan-omega;
   }
 
   @if $tartan-render-mode == inline-block {
@@ -56,7 +56,7 @@
   }
 }
 
-@mixin push-columns($columns: 1, $context: $tartan-column-count, $type: margin) {
+@mixin tartan-push-columns($columns: 1, $context: $tartan-column-count, $type: margin) {
   #{$type}-left: tartan-columns($columns, $context) + tartan-gutter($context);
 
   @if $type == padding {
@@ -64,7 +64,7 @@
   }
 }
 
-@mixin bumper($columns: 1, $context: $tartan-column-count, $type: margin) {
+@mixin tartan-bumper($columns: 1, $context: $tartan-column-count, $type: margin) {
   #{$type}-right: tartan-columns($columns, $context) + tartan-gutter($context);
 
   @if $type == padding {
@@ -72,16 +72,16 @@
   }
 }
 
-@mixin no-push($type) {
+@mixin tartan-no-push($type) {
   #{$type}-left: 0;
 }
 
-@mixin omega {
+@mixin tartan-omega {
   float: right;
   margin-right: 0;
 }
 
-@mixin no-omega($context: $tartan-column-count) {
+@mixin tartan-no-omega($context: $tartan-column-count) {
   float: left;
   margin-right: tartan-gutter($context);
 }
