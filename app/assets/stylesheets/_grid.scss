@@ -18,10 +18,24 @@
   }
 }
 
-@mixin tartan-sub-container {
+@mixin tartan-sub-container($columns: $tartan-column-count, $context: $tartan-column-count) {
   @include tartan-container;
-  max-width: 100%;
-  padding: 0;
+
+  @if $tartan-render-mode == inline-block {
+    display: inline-block;
+  } @else {
+    display: block;
+    float: left;
+  }
+
+  margin-right: tartan-gutter($context);
+  margin-bottom: tartan-gutter($context);
+  width: tartan-columns($columns, $context);
+  vertical-align: top;
+
+  @if $columns == $context {
+    @include tartan-omega;
+  }
 }
 
 @mixin tartan-row {
@@ -49,10 +63,6 @@
 
   @if $tartan-render-mode == inline-block {
     letter-spacing: normal;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
   }
 }
 
