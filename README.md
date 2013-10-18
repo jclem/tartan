@@ -1,29 +1,9 @@
 # Tartan
 
-TODO: Write a gem description
+tartan is a simple, flexible grid system packaged as a [Ruby gem](http://rubygems.org/gems/tartan-grid).
 
-## Installation
+The primary goal of tartan is to create a grid that can be adapted to a diverse set of layout scenarios.
 
-Add this line to your application's Gemfile:
+Where wrapping content in row containers is an options, tartan supports positioning content via floats. Where this is not possible, tartan supports positioning content via inline-block, eliminating the need to wrap content in row containers. This is especially useful in fluid/responsive layouts.
 
-    gem 'tartan'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install tartan
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Currently, the best documentation is at [http://jclem.net/tartan](http://jclem.net/tartan).
