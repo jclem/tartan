@@ -6,8 +6,20 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6,
-p, pre {
+pre, dl {
   @include tartan-span-columns;
+}
+
+p {
+  @include tartan-span-columns(8);
+}
+
+dl {
+  margin-top: 1em;
+}
+
+dd {
+  margin: 0.5em 0 1.5em 0.5em;
 }
 
 header {
@@ -29,7 +41,7 @@ pre {
 }
 
 #intro {
-  margin-bottom: 8em;
+  margin-bottom: 2em;
 }
 
 .install-option {

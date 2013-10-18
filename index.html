@@ -17,7 +17,11 @@
   </header>
 
   <section id='intro'>
-    <p><a href='https://github.com/jclem/tartan'>tartan</a> is a simple, flexible grid system packaged as a <a href='http://rubygems.org/gems/tartan-grid'>Ruby gem</a>.
+    <p><a href='https://github.com/jclem/tartan'>tartan</a> is a simple, flexible grid system packaged as a <a href='http://rubygems.org/gems/tartan-grid'>Ruby gem</a>.</p>
+
+    <p>The primary goal of tartan is to create a grid that can be adapted to a diverse set of layout scenarios.</p>
+
+    <p>Where wrapping content in row containers is an options, tartan supports positioning content via floats. Where this is not possible, tartan supports positioning content via inline-block, eliminating the need to wrap content in row containers. This is especially useful in fluid/responsive layouts.</p>
   </section>
 
   <section id='install'>
@@ -160,6 +164,80 @@ aside {
     </div>
 
     <p>View a demo of this code <a href='demo.html'>here</a>.</p>
+  </section>
+
+  <section>
+    <h1>Options</h1>
+
+    <p>After importing <code class='language-scss'>'tartan/tartan'</code> into
+    your sass file, certain settings can be overridden:</p>
+
+    <dl>
+      <dt><code class='language-scss'>$tartan-base-size</code> (default: 16)</dt>
+      <dd>Inline-block rendering requires adjusting letter-spacing, so this should be set to the base font size of the page, in pixels.</dd>
+
+      <dt><code class='language-scss'>$tartan-column-count</code> (default: 12)</dt>
+      <dd>The default number of columns (i.e. the implicit <code class='language-scss'>$context</code>) in the layout.</dd>
+
+      <dt><code class='language-scss'>$tartan-column-width</code> (default: 4em)</dt>
+      <dd>The default width of a single column.</dd>
+
+      <dt><code class='language-scss'>$tartan-fluid</code> (default: true)</dt>
+      <dd>Whether or not the layout should be fluid.</dd>
+
+      <dt><code class='language-scss'>$tartan-gutter-width</code> (default: 1em)</dt>
+      <dd>The default width of the gutter between columns.</dd>
+
+      <dt><code class='language-scss'>$tartan-render-mode</code> (default: inline-block)</dt>
+      <dd>When set to <code class='language-scss'>inline-block</code>, uses inline-block layout rendering. Any other value uses floats.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h1>Mixins</h1>
+
+    <dl>
+      <dt><code class='language-scss'>tartan-container</code></dt>
+      <dd>The wrapper for an entire grid, or set of <code class='language-scss'>$tartan-span-columns</code> elements. When <code class='language-scss'>$tartan-render-mode</code> is inline-block, its letter-spacing is a negative value, so all of its children must first be children of a <code class='language-scss'>$tartan-span-columns</code> element.</dd>
+
+      <dt><code class='language-scss'>tartan-sub-container($columns: $tartan-column-count, $context: $tartan-column-count)</code></dt>
+      <dd>A combination of <code class='language-scss'>tartan-container</code> and <code class='language-scss'>tartan-span-columns</code>, useful for creating complex nested layouts.</dd>
+
+      <dt><code class='language-scss'>tartan-row</code></dt>
+      <dd>Useful when <code class='language-scss'>$tartan-render-mode</code> is not inline-block, as it implements a clearfix.</dd>
+
+      <dt><code class='language-scss'>tartan-span-columns($columns: $tartan-column-count, $context: $tartan-column-count, $tartan-render-mode: $tartan-render-mode)</code></dt>
+      <dd>The basic building block of tartan, states how many columns of a given context (12 by default) a container should use.</dd>
+
+      <dt><code class='language-scss'>tartan-push-columns($columns: 1, $context: $tartan-column-count, $type: margin)</code></dt>
+      <dd>Pushes an element a number of columns to the right, with margin or padding. Can be overriden with <code class='language-scss'>tartan-no-push</code>.</dd>
+
+      <dt><code class='language-scss'>tartan-omega</code></dt>
+      <dd>Must be applied to the last element in a visual row, ensuring that it doesn't wrap. Can be overriden with <code class='language-scss'>tartan-no-omega</code> (this is useful when implementing responsive layouts).</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h1>Functions</h1>
+
+    <p>tartan makes available a number of functions that it uses internally to calculate layout.</p>
+
+    <dl>
+      <dt><code class='language-scss'>tartan-columns-width($columns)</code></dt>
+      <dd>Returns in <code class='language-scss'>em</code> units the width of a given number of columns in the current layout.</dd>
+
+      <dt><code class='language-scss'>tartan-columns($columns, $context: $tartan-column-count)</code></dt>
+      <dd>Returns a percentage value representing the width of a number of columns in a given context.</dd>
+
+      <dt><code class='language-scss'>tartan-gutter($context: $tartan-column-count)</code></dt>
+      <dd>Returns a percentage value representing the width of a gutter in a given context.</dd>
+
+      <dt><code class='language-scss'>tartan-container-outer-width</code></dt>
+      <dd>Returns in <code class='language-scss'>em</code> units the width of the entire container, based on <code class='language-scss'>$tartan-column-count</code>.</dd>
+
+      <dt><code class='language-scss'>tartan-relative-width($width, $context: $tartan-column-count)</code></dt>
+      <dd>Returns a percentage value representing how much of a layout <code class='language-scss'>$width</code> (an <code class='language-scss'>em</code> value) occupies in a given context.</dd>
+    </dl>
   </section>
 </body>
 </html>

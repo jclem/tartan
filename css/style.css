@@ -164,8 +164,11 @@ code {
 strong {
   font-weight: bold; }
 
-p {
+p, dd {
   line-height: 1.4285; }
+
+dt {
+  font-family: 'Inconsolata', 'Consolas', monospace; }
 
 body {
   -webkit-box-sizing: border-box;
@@ -182,7 +185,7 @@ body {
     clear: both; }
 
 h1, h2, h3, h4, h5, h6,
-p, pre {
+pre, dl {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -194,6 +197,23 @@ p, pre {
   float: right;
   margin-right: 0;
   letter-spacing: normal; }
+
+p {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 1.69492%;
+  margin-bottom: 1.69492%;
+  width: 66.10169%;
+  vertical-align: top;
+  letter-spacing: normal; }
+
+dl {
+  margin-top: 1em; }
+
+dd {
+  margin: 0.5em 0 1.5em 0.5em; }
 
 header {
   margin-bottom: 1em;
@@ -209,7 +229,7 @@ pre {
   margin: 1em 0; }
 
 #intro {
-  margin-bottom: 8em; }
+  margin-bottom: 2em; }
 
 .install-option {
   -webkit-box-sizing: border-box;
