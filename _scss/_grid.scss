@@ -12,6 +12,10 @@ pre, dl {
 
 p {
   @include tartan-span-columns(8);
+
+  @media screen and (max-width:720px) {
+    @include tartan-span-columns;
+  }
 }
 
 dl {

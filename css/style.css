@@ -208,6 +208,19 @@ p {
   width: 66.10169%;
   vertical-align: top;
   letter-spacing: normal; }
+  @media screen and (max-width: 720px) {
+    p {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      display: inline-block;
+      margin-right: 1.69492%;
+      margin-bottom: 1.69492%;
+      width: 100%;
+      vertical-align: top;
+      float: right;
+      margin-right: 0;
+      letter-spacing: normal; } }
 
 dl {
   margin-top: 1em; }
