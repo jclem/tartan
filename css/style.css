@@ -212,6 +212,9 @@ p {
 dl {
   margin-top: 1em; }
 
+dt {
+  word-break: break-word; }
+
 dd {
   margin: 0.5em 0 1.5em 0.5em; }
 
