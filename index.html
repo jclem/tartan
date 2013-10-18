@@ -22,6 +22,16 @@
     <p>The primary goal of tartan is to create a grid that can be adapted to a diverse set of layout scenarios.</p>
 
     <p>Where wrapping content in parent row containers is an option, tartan supports positioning content via floats. Where this is not possible, tartan supports positioning content via inline-block, eliminating the need to wrap content in row containers. This is especially useful in fluid/responsive layouts.</p>
+
+    <nav>
+      <ul>
+        <li><a href='#install'>Install</a>
+        <li><a href='#usage'>Usage</a>
+        <li><a href='#options'>Options</a>
+        <li><a href='#mixins'>Mixins</a>
+        <li><a href='#functions'>Functions</a>
+      </ul>
+    </nav>
   </section>
 
   <section id='install'>
@@ -40,9 +50,11 @@
       <pre class='language-bash'><code>$ echo "gem 'tartan'" > Gemfile
 $ bundle</code></pre>
     </div>
+
+    <p class='back-to-top'><a href='#'>Back to top</a></p>
   </section>
 
-  <section>
+  <section id='usage'>
     <h1>Usage</h1>
 
     <div class='usage-step'>
@@ -164,9 +176,10 @@ aside {
     </div>
 
     <p>View a demo of this code <a href='demo.html'>here</a>.</p>
+    <p class='back-to-top'><a href='#'>Back to top</a></p>
   </section>
 
-  <section>
+  <section id='options'>
     <h1>Options</h1>
 
     <p>After importing <code class='language-scss'>'tartan/tartan'</code> into
@@ -191,9 +204,11 @@ aside {
       <dt><code class='language-scss'>$tartan-render-mode</code> (default: inline-block)</dt>
       <dd>When set to <code class='language-scss'>inline-block</code>, uses inline-block layout rendering. Any other value uses floats.</dd>
     </dl>
+
+    <p class='back-to-top'><a href='#'>Back to top</a></p>
   </section>
 
-  <section>
+  <section id='mixins'>
     <h1>Mixins</h1>
 
     <dl>
@@ -215,9 +230,11 @@ aside {
       <dt><code class='language-scss'>tartan-omega</code></dt>
       <dd>Must be applied to the last element in a visual row, ensuring that it doesn't wrap. Can be overriden with <code class='language-scss'>tartan-no-omega</code> (this is useful when implementing responsive layouts).</dd>
     </dl>
+
+    <p class='back-to-top'><a href='#'>Back to top</a></p>
   </section>
 
-  <section>
+  <section id='functions'>
     <h1>Functions</h1>
 
     <p>tartan makes available a number of functions that it uses internally to calculate layout.</p>
@@ -238,6 +255,8 @@ aside {
       <dt><code class='language-scss'>tartan-relative-width($width, $context: $tartan-column-count)</code></dt>
       <dd>Returns a percentage value representing how much of a layout <code class='language-scss'>$width</code> (an <code class='language-scss'>em</code> value) occupies in a given context.</dd>
     </dl>
+
+    <p class='back-to-top'><a href='#'>Back to top</a></p>
   </section>
 </body>
 </html>

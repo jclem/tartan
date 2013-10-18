@@ -35,7 +35,19 @@ header {
   padding: 1em 0;
 }
 
+nav {
+  @include tartan-span-columns;
+  padding: 1em 0;
+  margin: 1em 0;
+
+  li {
+    margin-right: 1em;
+    display: inline-block;
+  }
+}
+
 section {
+  @include clearfix;
   margin-bottom: 2em;
 
   h1 {
