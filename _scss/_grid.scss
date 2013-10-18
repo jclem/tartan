@@ -1,0 +1,58 @@
+@import 'tartan/tartan';
+
+body {
+  @include tartan-container;
+  padding-bottom: 8em;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, pre {
+  @include tartan-span-columns;
+}
+
+header {
+  margin-bottom: 1em;
+  padding: 1em 0;
+}
+
+section {
+  margin-bottom: 2em;
+
+  h1 {
+    padding-bottom: 1em;
+    margin: 1em 0;
+  }
+}
+
+pre {
+  margin: 1em 0;
+}
+
+#intro {
+  margin-bottom: 8em;
+}
+
+.install-option {
+  @include tartan-span-columns(6);
+  &:last-of-type { @include tartan-omega; }
+
+  @media screen and (max-width: 720px) {
+    @include tartan-span-columns;
+  }
+}
+
+.usage-step {
+  @include tartan-row;
+  margin-bottom: 2em;
+}
+
+.usage-markup, .usage-style {
+  @include tartan-span-columns(6);
+  @media screen and (max-width: 720px) {
+    @include tartan-span-columns;
+  }
+}
+
+.usage-style {
+  @include tartan-omega;
+}

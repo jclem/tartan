@@ -1,0 +1,165 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>tartan-grid</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+  <link rel='stylesheet' href='css/style.css'>
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+  <script src='js/prism.js'></script>
+</head>
+
+<body>
+  <header>
+    <h1>tartan</h1>
+  </header>
+
+  <section id='intro'>
+    <p><a href='https://github.com/jclem/tartan'>tartan</a> is a simple, flexible grid system packaged as a <a href='http://rubygems.org/gems/tartan-grid'>Ruby gem</a>.
+  </section>
+
+  <section id='install'>
+    <h1>Install</h1>
+
+    <p>Install the gem:</p>
+    <pre class='language-bash'><code>$ gem install tartan-grid</code></pre>
+
+    <div class='install-option'>
+      <p>Install tartan SCSS:</p>
+      <pre class='language-bash'><code>$ tartan install --path app/assets/stylesheets</code></pre>
+    </div>
+
+    <div class='install-option'>
+      <p><strong>Or</strong> bundle the gem:</p>
+      <pre class='language-bash'><code>$ echo "gem 'tartan'" > Gemfile
+$ bundle</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <h1>Usage</h1>
+
+    <div class='usage-step'>
+      <p>Create a container element:</p>
+
+      <div class='usage-markup'>
+        <pre class='language-markup'><code>&lt;div id='content'&gt;&lt;/div&gt;</code></pre>
+      </div>
+
+      <div class='usage-style'>
+        <pre class='language-scss'><code>@import 'tartan/tartan';
+
+#content {
+  @include tartan-container;
+}</code></pre>
+      </div>
+    </div>
+
+    <div class='usage-step'>
+      <p>Full-width content uses <code class='language-scss'>tartan-span-columns</code>, partial-width content uses <code class='language-scss'>tartan-span-columns($column-count)</code>. By default, a container has 12 columns, so <code class='language-scss'>tartan-span-columns(6)</code> is a 50%-width section.</p>
+
+      <div class='usage-markup'>
+        <pre class='language-markup'><code>&lt;div id='content'&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Buy This Thing&lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;section id='pricing'&gt;
+    &lt;div class='pricing-plan'&gt;Pricing plan 1&lt;/div&gt;
+    &lt;div class='pricing-plan'&gt;Pricing plan 2&lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div class='usage-style'>
+        <pre class='language-scss'><code>@import 'tartan/tartan';
+
+#content {
+  @include tartan-container;
+}
+
+header {
+  @include tartan-span-columns;
+}
+
+.pricing-plan {
+  @include tartan-span-columns(6);
+  &:last-child { @include tartan-omega; }
+}</code></pre>
+      </div>
+    </div>
+
+    <div class='usage-step'>
+      <p>For nested content, wrap content to be nested in <code class='language-scss'>tartan-sub-container($context)</code>. Further nested content will make use of the same <code class='language-scss'>$context</code>:
+
+      <div class='usage-markup'>
+        <pre class='language-markup'><code>&lt;div id='content'&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Buy This Thing&lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;section id='pricing'&gt;
+    &lt;div class='pricing-plan'&gt;Pricing plan 1&lt;/div&gt;
+    &lt;div class='pricing-plan'&gt;Pricing plan 2&lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;aside&gt;
+    &lt;h2&gt;Hello from Sidebar&lt;/h2&gt;
+  &lt;/aside&gt;
+
+  &lt;div id='primary-content'&gt;
+    &lt;h2&gt;Features&lt;/h2&gt;
+
+    &lt;ul class='feature-list'&gt;
+      &lt;li&gt;Stuff you don't want&lt;/li&gt;
+      &lt;li&gt;Stuff you don't need&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;ul class='feature-list'&gt;
+      &lt;li&gt;Stuff you don't want&lt;/li&gt;
+      &lt;li&gt;Stuff you don't need&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div class='usage-style'>
+        <pre class='language-scss'><code>@import 'tartan/tartan';
+
+#content {
+  @include tartan-container;
+}
+
+header {
+  @include tartan-span-columns;
+}
+
+.pricing-plan {
+  @include tartan-span-columns(6);
+  &:last-child { @include tartan-omega; }
+}
+
+aside {
+  @include tartan-span-columns(4);
+}
+
+#primary-content {
+  @include tartan-sub-container(8);
+  @include tartan-omega;
+
+  h2 { @include tartan-span-columns(8, 8); }
+}
+
+.feature-list {
+  @include tartan-span-columns(4, 8);
+  &:last-child { @include tartan-omega; }
+}</code></pre>
+      </div>
+    </div>
+
+    <p>View a demo of this code <a href='/demo.html'>here</a>.</p>
+  </section>
+</body>
+</html>

@@ -1,0 +1,97 @@
+@import 'mixins';
+
+@mixin tartan-container {
+  @include box-sizing(border-box);
+  @include clearfix;
+
+  margin: 0 auto;
+  max-width: tartan-container-outer-width();
+  width: tartan-columns(12) - tartan-gutter() * 2;
+
+  @if $tartan-fluid == false {
+    min-width: tartan-container-outer-width() + $tartan-gutter-width * 2;
+    padding: 0 $tartan-gutter-width;
+  }
+
+  @if $tartan-render-mode == inline-block {
+    letter-spacing: -($tartan-base-size / 64) * 1em;
+  }
+}
+
+@mixin tartan-sub-container($columns: $tartan-column-count, $context: $tartan-column-count) {
+  @include tartan-container;
+
+  @if $tartan-render-mode == inline-block {
+    display: inline-block;
+  } @else {
+    display: block;
+    float: left;
+  }
+
+  margin-right: tartan-gutter($context);
+  margin-bottom: tartan-gutter($context);
+  width: tartan-columns($columns, $context);
+  vertical-align: top;
+
+  @if $columns == $context {
+    @include tartan-omega;
+  }
+}
+
+@mixin tartan-row {
+  @include clearfix;
+}
+
+@mixin tartan-span-columns($columns: $tartan-column-count, $context: $tartan-column-count, $tartan-render-mode: $tartan-render-mode) {
+  @include box-sizing(border-box);
+
+  @if $tartan-render-mode == inline-block {
+    display: inline-block;
+  } @else {
+    display: block;
+    float: left;
+  }
+
+  margin-right: tartan-gutter($context);
+  margin-bottom: tartan-gutter($context);
+  width: tartan-columns($columns, $context);
+  vertical-align: top;
+
+  @if $columns == $context {
+    @include tartan-omega;
+  }
+
+  @if $tartan-render-mode == inline-block {
+    letter-spacing: normal;
+  }
+}
+
+@mixin tartan-push-columns($columns: 1, $context: $tartan-column-count, $type: margin) {
+  #{$type}-left: tartan-columns($columns, $context) + tartan-gutter($context);
+
+  @if $type == padding {
+    @include box-sizing(content-box);
+  }
+}
+
+@mixin tartan-bumper($columns: 1, $context: $tartan-column-count, $type: margin) {
+  #{$type}-right: tartan-columns($columns, $context) + tartan-gutter($context);
+
+  @if $type == padding {
+    @include box-sizing(content-box);
+  }
+}
+
+@mixin tartan-no-push($type) {
+  #{$type}-left: 0;
+}
+
+@mixin tartan-omega {
+  float: right;
+  margin-right: 0;
+}
+
+@mixin tartan-no-omega($context: $tartan-column-count) {
+  float: left;
+  margin-right: tartan-gutter($context);
+}
